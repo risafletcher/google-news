@@ -1,7 +1,7 @@
 const axios = require('axios');
 const getLocalCodes = require('./utils/getLocaleCodes');
 const parseResults = require('./utils/parseResults');
-const topics = require('../utils/topics');
+const topics = require('./utils/topics');
 
 async function search({
     q,
@@ -37,13 +37,13 @@ async function searchByTopic({
     cc = 'us',
     lc = 'en',
 } = {}) {
-    const topicId = topicId || topics[topic];
+    const id = topicId || topics[topic];
     if (!topics[topic]) {
         throw new Error(`${topic} is not a valid topic. Please use getTopics() to get all valid topics.`);
     }
     const localeCodes = getLocalCodes({ country, language, cc, lc });
     const response = await axios.get(
-        `https://news.google.com/rss/topic/${topicId}`,
+        `https://news.google.com/rss/topic/${id}`,
         {
             params: {
                 hl: localeCodes.lc,

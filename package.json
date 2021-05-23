@@ -1,5 +1,5 @@
 {
-  "name": "google-news",
+  "name": "google-news-rss-to-js",
   "version": "1.0.0",
   "description": "An RSS scraper for Google News",
   "main": "src/index.js",
@@ -11,7 +11,8 @@
     "url": "https://github.com/risafletcher/google-news.git"
   },
   "keywords": [
-    "google-news"
+    "google news",
+    "rss scraper"
   ],
   "author": "Risa Fletcher",
   "license": "ISC",

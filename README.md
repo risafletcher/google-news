@@ -1,15 +1,14 @@
-# google-news
+# google-news-rss-to-js
 An RSS scraper for Google News.
 
 ## Installation
-```npm i google-news --save```
+```npm i google-news-rss-to-js --save```
 
 ## Usage
-
 ### Search 
 
 ```
-const googleNews = require('google-news');
+const googleNews = require('google-news-rss-to-js');
 
 //  Get top stories from the Google News homepage
 const topStories = await googleNews.search();
@@ -25,7 +24,7 @@ const marthaStewartStories = await googleNews.search({ q: 'Martha Stewart' });
 
 ### Topics
 ```
-const googleNews = require('google-news');
+const googleNews = require('google-news-rss-to-js');
 
 //  Get available topics
 const topics = await googleNews.getTopics();

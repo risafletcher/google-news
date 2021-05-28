@@ -1,6 +1,6 @@
 {
   "name": "google-news-rss-to-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An RSS scraper for Google News",
   "main": "src/index.js",
   "scripts": {

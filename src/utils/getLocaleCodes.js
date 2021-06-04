@@ -1,22 +1,17 @@
-const locale = require('locale-codes');
-
-const getCodesFromTag = (tag) => {
-    const [languageCode, countryCode] = tag.split('-');
-    return { lc: languageCode, cc: countryCode };
-}
+const locale = require('cldr-language-country');
 
 module.exports = function getLocaleCodes({ country, language, cc, lc } = {}) {
     if (cc && lc) {
         return { cc, lc };
     } else if (lc) {
-        const tag = locale.getByISO6391(lc).tag;
-        return getCodesFromTag(tag);
+        const data = locale.getByLC(lc);
+        return { lc, cc: data.country.code };
     } else if (country) {
-        const tag = locale.getByLocation(lc).tag;
-        return getCodesFromTag(tag);
+        const data = locale.getByCountryName(country);
+        return { lc: data.language.code, cc: data.country.code };
     } else if (language) {
-        const tag = locale.getByName(lc).tag;
-        return getCodesFromTag(tag);
+        const data = locale.getByLanguageName(language);
+        return { lc: data.language,code, cc: data.country.code };
     } else {
         return null;
     }
